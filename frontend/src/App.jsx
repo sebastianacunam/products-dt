@@ -13,18 +13,9 @@ function App() {
   const [selectCategory, setSelectCategory] = useState('');
   const [selectedProduct, setSelectedProduct] = useState(null);
 
-  const onPageChange = async (pageNumber) => {
-    setCurrentPage(pageNumber);
-    await fetchDataForPage(pageNumber, searchName, selectCategory)
-  };
-  const handleInputChange = (event) => {
-    setSearchName(event.target.value);
-    setCurrentPage(1);
-  };
-
   const fetchDataForPage = async (pageNumber, searchName = '', selectCategory = '') => {
     try {
-      const response = await fetch(`https://products-dun.vercel.app/products?page=${pageNumber}&nombre=${searchName}&categoria=${selectCategory}`);
+      const response = await fetch(`https://products-dt-bxia.vercel.app/products?page=${pageNumber}&name=${searchName}&category=${selectCategory}`);
       const data = await response.json();
       if (data?.error === true) {
         throw new Error(data?.message);
@@ -38,7 +29,14 @@ function App() {
     }
   };
 
-
+  const onPageChange = async (pageNumber) => {
+    setCurrentPage(pageNumber);
+    await fetchDataForPage(pageNumber, searchName, selectCategory)
+  };
+  const handleInputChange = (event) => {
+    setSearchName(event.target.value);
+    setCurrentPage(1);
+  };
 
   useEffect(() => {
     fetchDataForPage(currentPage, searchName, selectCategory);
@@ -80,7 +78,7 @@ function App() {
           ))}
         </select>
         <button onClick={handleFilter} className="px-4 py-2 bg-indigo-300 text-black rounded-md">Limpiar filtros</button>
-        <div className='flex flex-row justify-center p-5 ml-36' >  <button className=" bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"><Link to="/nuevo-producto">Nuevo Producto</Link></button></div>
+        <div className='flex flex-row justify-center p-5 ml-36' >  <button className=" bg-blue-500 text-white font-bold py-2 px-4 rounded"><Link to="/nuevo-producto">Nuevo Producto</Link></button></div>
       </div>
 
 

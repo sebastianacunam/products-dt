@@ -1,5 +1,3 @@
-/* eslint-disable react/prop-types */
-
 import { Link } from "react-router-dom";
 
 const Modal = ({ isOpen, onClose, product }) => {
@@ -18,13 +16,13 @@ const Modal = ({ isOpen, onClose, product }) => {
               <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4 text-center">
                 <div className="sm:flex sm:items-start">
                   <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
-                    <h3 className="text-lg leading-6 font-medium text-gray-900 mb-2">{product.nombre}</h3>
-                    <div className="mb-2">Precio: {product.precio}</div>
-                    <div className="mb-2">Total Productos: {product.total_productos}</div>
-                    <img src={product.imagen} alt={product.nombre} className="w-full max-h-60 object-contain mb-2" />
-                    <div className="mb-2">Descripción: {product.descripcion}</div>
-                    <div className="mb-2">Categoría: {product.categoria}</div>
-                    <div className="mb-2">Disponible: {product?.disponibilidad ? "Si" : "No disponible"}</div>
+                    <h3 className="text-lg leading-6 font-medium text-gray-900 mb-2">{product.name}</h3>
+                    <div className="mb-2">Precio: {product.price}</div>
+                
+                    <img src={product.image} alt={product.name} className="w-full max-h-60 object-contain mb-2" />
+                    <div className="mb-2">Descripción: {product.description}</div>
+                    <div className="mb-2">Categoría: {product.category}</div>
+                    <div className="mb-2">Disponible: {product?.available ? "Si" : "No disponible"}</div>
                   </div>
                 </div>
               </div>

@@ -1,2 +1,2 @@
 
-export const categorias = ["Electrodomésticos", "Indumentaria", "Herramientas", "Jardineria"];
+export const categorias = ["Especialidad", "Comercial"];
